@@ -54,5 +54,8 @@ properties:
   consul.services:
     description: a map of service configurations, keyed by service name
 
+  consul.zone:
+    description: "Site, data centre"
+
   networks.apps:
     description: Deployment's internal name for the network interface to discover own IP
