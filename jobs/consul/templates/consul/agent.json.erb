@@ -19,7 +19,7 @@
 
   config = {
     data_dir: '/var/vcap/store/consul',
-    ui_dir: '/var/vcap/packages/consul-ui',
+    # ui_dir: '/var/vcap/packages/consul-ui',
     node_name: "#{spec.deployment}-#{zone}-#{name}-#{index}",
     bind_addr: '0.0.0.0',
     client_addr: client_addr,
@@ -34,6 +34,10 @@
     },
     disable_update_check: true
   }
+
+  if p('consul.enable_ui', false)
+    config[:ui_dir] = '/var/vcap/packages/consul-ui'
+  end
 
   if ssl_ca and ssl_cert and ssl_key
     config[:verify_incoming] = true

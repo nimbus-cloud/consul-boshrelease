@@ -57,5 +57,8 @@ properties:
   consul.zone:
     description: "Site, data centre"
 
+  consul.enable_ui:
+    default: false
+
   networks.apps:
     description: Deployment's internal name for the network interface to discover own IP
